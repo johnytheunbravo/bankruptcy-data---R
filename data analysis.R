@@ -1,7 +1,9 @@
 # banruptcy data
 # Tanishi Gupta 19/888
 # Sushree Annanya 19/886
-train <- read.csv("aug_train.csv")
+# experience = >20 has been changed to 21 and >1 to 0.5 
+# last new job = >4 has been changes to 5 and never to 0 
+train <- read.csv("at.csv")
 View(train)
 male<-subset(train,gender=="Male")
 View(male)
@@ -43,4 +45,14 @@ ot<- subset(train,major_discipline=='Other')
 View(ot)
 nm<- subset(train,major_discipline=='No Major')
 View(nm)
-# it is dominated by STEM majors
+# it is dominated by STEM majors followed by humanities 
+# with the least from ni major 
+re <- subset(train,relevent_experience=='Has relevent experience')
+View(re)
+nre <- subset(train,relevent_experience=='No relevent experience')
+View(nre)
+# most of the data analysts have relevent experience 
+tar<- subset(train, target==1)
+View(tar)
+notar<- subset(train,target==0)
+View(notar)
